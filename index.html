@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLINCA · GESTÃO DE RECLAMAÇÕES · PROJETO INTERATIVO</title>
+  <title>Gestão e Tratamento de Reclamações</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Archivo+Black&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
@@ -29,8 +29,8 @@
     body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
     .cursor { width: 24px; height: 24px; border: 2px solid var(--laranja-solinca); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: transform 0.2s ease; }
     .cursor-follower { width: 50px; height: 50px; background: rgba(240, 78, 53, 0.1); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: transform 0.4s ease; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.1); }
-    nav { position: fixed; top: 0; left: 0; width: 100%; padding: 1.8rem 4rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; backdrop-filter: blur(8px); background: rgba(10,10,10,0.2); border-bottom: 1px solid rgba(240,78,53,0.2); }
-    .logo { font-family: 'Archivo Black', sans-serif; font-size: 2.2rem; background: var(--grad-solinca); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 2px; }
+    nav { position: fixed; top: 0; left: 0; width: 100%; padding: 1.8rem 4rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; backdrop-filter: blur(8px); background: rgba(10,10,10,0.2); border-bottom: 1px solid rgba(240,78,53,0.2); }
+    .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.6rem; background: var(--grad-solinca); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 2px; }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { color: var(--branco-puro); text-decoration: none; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; position: relative; padding: 0.5rem 0; font-family: 'Unbounded', sans-serif; font-weight: 300; }
     .nav-links a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--grad-solinca); transition: width 0.3s cubic-bezier(0.4,0,0.2,1); }
@@ -43,15 +43,11 @@
     h2 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 2rem; background: var(--grad-solinca); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
     .gradient-text { background: var(--grad-solinca); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradientFlow 6s ease infinite; display: inline-block; }
     @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
-    /* FICHA */
     .ficha-identificacao { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(240,78,53,0.35); border-radius: 30px; padding: 2rem 2.5rem; backdrop-filter: blur(10px); }
     .ficha-item { display: flex; align-items: center; gap: 0.8rem; font-size: 1.05rem; color: rgba(255,255,255,0.85); }
     .ficha-item i { color: var(--laranja-solinca); font-size: 1.2rem; width: 22px; text-align: center; }
     .ficha-item strong { color: #fff; }
     .ficha-sep { width: 1px; background: rgba(240,78,53,0.3); align-self: stretch; }
-
-    /* CARDS */
     .cards-grid-3d { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 4rem 0; perspective: 2000px; }
     .card-3d { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(240, 78, 53, 0.2); border-radius: 40px; padding: 3rem 2rem; transform-style: preserve-3d; transform: rotateY(10deg) rotateX(4deg) translateZ(10px); transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2); cursor: pointer; box-shadow: 0 30px 40px -30px var(--laranja-solinca); }
     .card-3d:hover { transform: rotateY(0deg) rotateX(0deg) translateY(-25px) scale(1.05); box-shadow: 0 40px 70px -20px var(--laranja-solinca); border-color: var(--laranja-solinca); }
@@ -102,8 +98,6 @@
     .btn-3d::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
     .btn-3d:hover { transform: perspective(600px) translateZ(30px) scale(1.05); box-shadow: 0 25px 40px -10px var(--laranja-solinca); }
     .btn-3d:hover::before { left: 100%; }
-
-    /* EXTRAS */
     .info-box { background: rgba(240,78,53,0.1); border-left: 4px solid var(--laranja-solinca); border-radius: 0 20px 20px 0; padding: 1.5rem 2rem; margin: 1.5rem 0; }
     .info-box h4 { color: var(--laranja-solinca); margin-bottom: 0.8rem; font-family: 'Unbounded', sans-serif; font-size: 1rem; }
     .info-box p, .info-box li { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.8); }
@@ -179,7 +173,7 @@
   <div id="canvas-container"></div>
 
   <nav>
-    <div class="logo">SOLINCA<span style="color: var(--laranja-solinca);">360°</span></div>
+    <div class="logo">GRC<span style="color: var(--laranja-solinca);">360°</span></div>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#conceito">Perfis</a>
@@ -194,7 +188,7 @@
   <!-- ════════════════ HOME ════════════════ -->
   <section id="home">
     <div class="section-content">
-      <h1><span class="gradient-text">SOLINCA</span><br><span class="gradient-text">NORTHSHOPPING</span></h1>
+      <h1><span class="gradient-text">GESTÃO E</span><br><span class="gradient-text">TRATAMENTO DE RECLAMAÇÕES</span></h1>
 
       <div class="ficha-identificacao">
         <div class="ficha-item"><i class="fas fa-user-graduate"></i><span><strong>Afonso Pinho Terra Soares</strong></span></div>
@@ -206,7 +200,7 @@
         <div class="ficha-item"><i class="fas fa-layer-group"></i><span>Módulo: <strong>UFCD 7266 — Gestão e Tratamento de Reclamações</strong></span></div>
       </div>
 
-      <p style="font-size: 1.4rem; max-width: 800px; margin-bottom: 2rem; font-weight: 300; color: rgba(255,255,255,0.75);">Este projeto aborda a gestão completa de reclamações no contexto da Solinca Northshopping — desde a tipologia de clientes, técnicas de atendimento, fluxo operacional, legislação aplicável até à gestão de crises e plano de melhoria contínua.</p>
+      <p style="font-size: 1.4rem; max-width: 800px; margin-bottom: 2rem; font-weight: 300; color: rgba(255,255,255,0.75);">Este trabalho aborda a gestão completa de reclamações no contexto das instalações desportivas — desde a tipologia de clientes, técnicas de atendimento, fluxo operacional, legislação aplicável até à gestão de crises. O projeto final aplica estes conceitos à <strong>Solinca Northshopping</strong>.</p>
 
       <div class="stat-grid">
         <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Módulos Interativos</div></div>
@@ -227,15 +221,14 @@
     <div class="section-content">
       <h2>PERFIS & RECLAMAÇÕES</h2>
 
-      <!-- O que é uma reclamação -->
       <div class="info-box">
         <h4><i class="fas fa-info-circle"></i> O QUE É UMA RECLAMAÇÃO?</h4>
-        <p>Uma reclamação é a expressão formal de insatisfação de um cliente relativamente a um produto, serviço ou atendimento. No contexto de um ginásio como a Solinca, é também uma <strong>oportunidade de melhoria</strong> e de <strong>fidelização</strong>. Estudos mostram que um cliente cuja reclamação é bem resolvida tem <strong>maior probabilidade de ser fidelizado</strong> do que um cliente que nunca reclamou.</p>
+        <p>Uma reclamação é a expressão formal de insatisfação de um cliente relativamente a um produto, serviço ou atendimento. No contexto de uma instalação desportiva, é também uma <strong>oportunidade de melhoria</strong> e de <strong>fidelização</strong>. Estudos mostram que um cliente cuja reclamação é bem resolvida tem <strong>maior probabilidade de ser fidelizado</strong> do que um cliente que nunca reclamou.</p>
       </div>
 
       <!-- Brainstorming -->
       <div class="interactive-area">
-        <h3><i class="fas fa-brain"></i> Brainstorming: Reclamações na Solinca</h3>
+        <h3><i class="fas fa-brain"></i> Brainstorming: Reclamações em Instalações Desportivas</h3>
         <p style="font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Clica em cada categoria para ver causas, impactos e soluções detalhadas:</p>
         <div class="brainstorm-grid" id="brainstormGrid">
           <div class="brainstorm-item" onclick="selectBrainstorm(this, 'mensalidades')"><i class="fas fa-euro-sign"></i> Mensalidades / Faturação</div>
@@ -250,36 +243,36 @@
         </div>
       </div>
 
-      <!-- Casos Reais -->
-      <h3 style="font-family:'Unbounded',sans-serif; margin: 2rem 0 1rem; font-size:1.4rem;">📋 Casos Reais Solinca NS</h3>
+      <!-- Casos Práticos -->
+      <h3 style="font-family:'Unbounded',sans-serif; margin: 2rem 0 1rem; font-size:1.4rem;">📋 Casos Práticos — Instalações Desportivas</h3>
       <div class="cards-grid-3d">
         <div class="card-3d" onclick="showCaseDetails('mensalidade')">
           <i class="fas fa-file-invoice" style="font-size:2rem; margin-bottom:1rem;"></i>
           <h3 style="font-size:1.2rem;">Mensalidade em atraso</h3>
           <p style="font-size:0.9rem; margin-top:0.5rem;">Cliente pagou mas sistema acusava dívida.</p>
           <div id="case_mensalidade" style="display:none; margin-top:1rem; font-size:0.9rem; color:rgba(255,255,255,0.8); border-top:1px solid rgba(240,78,53,0.3); padding-top:1rem;">
-            <p>📌 <strong>Causa:</strong> Falha de sincronização entre o parceiro de pagamento (cartão Continente) e o sistema interno.</p>
+            <p>📌 <strong>Causa:</strong> Falha de sincronização entre parceiro de pagamento e sistema interno da instalação.</p>
             <p style="margin-top:0.5rem;">✅ <strong>Solução:</strong> Verificar comprovativo de pagamento, contactar departamento financeiro, resolver em 24h e confirmar por email.</p>
             <p style="margin-top:0.5rem;">⚖️ <strong>Lei:</strong> Direito à retificação imediata — DL 24/2014.</p>
           </div>
         </div>
         <div class="card-3d" onclick="showCaseDetails('horario')">
           <i class="fas fa-calendar-times" style="font-size:2rem; margin-bottom:1rem;"></i>
-          <h3 style="font-size:1.2rem;">Aula de cycling cancelada</h3>
-          <p style="font-size:0.9rem; margin-top:0.5rem;">20 clientes à espera. Aviso só no local.</p>
+          <h3 style="font-size:1.2rem;">Aula de grupo cancelada</h3>
+          <p style="font-size:0.9rem; margin-top:0.5rem;">Clientes à espera. Aviso só no local.</p>
           <div id="case_horario" style="display:none; margin-top:1rem; font-size:0.9rem; color:rgba(255,255,255,0.8); border-top:1px solid rgba(240,78,53,0.3); padding-top:1rem;">
-            <p>📌 <strong>Causa:</strong> Falta de instructor sem aviso prévio e ausência de protocolo de comunicação.</p>
+            <p>📌 <strong>Causa:</strong> Falta de instrutor sem aviso prévio e ausência de protocolo de comunicação.</p>
             <p style="margin-top:0.5rem;">✅ <strong>Solução:</strong> Comunicar por app/SMS com 2h de antecedência, oferecer aula alternativa ou crédito.</p>
-            <p style="margin-top:0.5rem;">🎯 <strong>Prevenção:</strong> Instructor substituto identificado para cada aula.</p>
+            <p style="margin-top:0.5rem;">🎯 <strong>Prevenção:</strong> Instrutor substituto identificado para cada aula.</p>
           </div>
         </div>
         <div class="card-3d" onclick="showCaseDetails('instalacoes')">
           <i class="fas fa-shower" style="font-size:2rem; margin-bottom:1rem;"></i>
-          <h3 style="font-size:1.2rem;">Balneários com infiltrações</h3>
+          <h3 style="font-size:1.2rem;">Balneários com problemas</h3>
           <p style="font-size:0.9rem; margin-top:0.5rem;">Reclamações recorrentes no livro.</p>
           <div id="case_instalacoes" style="display:none; margin-top:1rem; font-size:0.9rem; color:rgba(255,255,255,0.8); border-top:1px solid rgba(240,78,53,0.3); padding-top:1rem;">
             <p>📌 <strong>Causa:</strong> Manutenção deficiente e ausência de inspeções regulares.</p>
-            <p style="margin-top:0.5rem;">✅ <strong>Solução:</strong> Comunicar prazo de reparação, oferecer acesso a balneário alternativo. Reporte ao landlord (shopping).</p>
+            <p style="margin-top:0.5rem;">✅ <strong>Solução:</strong> Comunicar prazo de reparação, oferecer acesso a instalação alternativa e implementar plano de manutenção preventiva.</p>
             <p style="margin-top:0.5rem;">📋 <strong>Plano:</strong> Inspeção semanal de todas as instalações sanitárias.</p>
           </div>
         </div>
@@ -289,7 +282,7 @@
       <!-- Perfis de Cliente -->
       <div class="interactive-area" style="position: relative;">
         <span class="roleplay-badge">🎭 ROLE PLAY</span>
-        <h3>Jogo de Papéis: Tipos de Clientes Solinca</h3>
+        <h3>Jogo de Papéis: Tipos de Clientes</h3>
 
         <div class="info-box" style="margin-bottom:2rem;">
           <h4>POR QUE IDENTIFICAR O PERFIL DO CLIENTE?</h4>
@@ -335,7 +328,7 @@
         <h3><i class="fas fa-question-circle"></i> Quiz: Identifica o Perfil</h3>
         <p style="margin-bottom:1rem; color:rgba(255,255,255,0.7);">Lê o cenário e seleciona o perfil de cliente correto:</p>
         <div class="quiz-question" id="q1">
-          <p>📍 Uma sócia entra na receção, diz com voz baixa "olha, não sei se isto tem importância, mas a duche do balneário não aquece..." e sai rapidamente sem esperar resposta. Que perfil é este?</p>
+          <p>📍 Uma cliente entra na receção, diz com voz baixa "olha, não sei se isto tem importância, mas a duche do balneário não aquece..." e sai rapidamente sem esperar resposta. Que perfil é este?</p>
           <div class="quiz-options">
             <div class="quiz-opt" onclick="answerQuiz('q1','A','B')">A) Agressivo</div>
             <div class="quiz-opt" onclick="answerQuiz('q1','B','B')">B) Passivo</div>
@@ -361,9 +354,8 @@
   <!-- ════════════════ ATENDIMENTO ════════════════ -->
   <section id="atendimento">
     <div class="section-content">
-      <h2>ATENDIMENTO SOLINCA</h2>
+      <h2>TÉCNICAS DE ATENDIMENTO</h2>
 
-      <!-- Princípios -->
       <div class="tab-container">
         <div class="tab-buttons">
           <button class="tab-btn active" onclick="openTab('tab-principios', this)">📌 Princípios</button>
@@ -403,7 +395,7 @@
           </div>
         </div>
         <div class="tab-content" id="tab-canais">
-          <h4 style="font-family:'Unbounded',sans-serif; color:var(--laranja-solinca); margin-bottom:1.5rem;">CANAIS DE RECEÇÃO DE RECLAMAÇÕES — SOLINCA</h4>
+          <h4 style="font-family:'Unbounded',sans-serif; color:var(--laranja-solinca); margin-bottom:1.5rem;">CANAIS DE RECEÇÃO DE RECLAMAÇÕES — INSTALAÇÕES DESPORTIVAS</h4>
           <div class="step-flow">
             <div class="step-item" onclick="toggleStep('ch1')">
               <div class="step-number">📞</div>
@@ -411,7 +403,7 @@
             </div>
             <div class="step-item" onclick="toggleStep('ch2')">
               <div class="step-number">📱</div>
-              <div class="step-text"><h4>App Solinca / Email</h4><p>Canal digital assíncrono. Resposta em 24-48h.</p><div class="step-detail" id="ch2">Protocolo: resposta automática de confirmação em 1h. Resolução em 24h úteis. Registo automático no sistema CRM. Permite triagem e categorização eficiente das reclamações.</div></div>
+              <div class="step-text"><h4>App / Email</h4><p>Canal digital assíncrono. Resposta em 24-48h.</p><div class="step-detail" id="ch2">Protocolo: resposta automática de confirmação em 1h. Resolução em 24h úteis. Registo automático no sistema CRM. Permite triagem e categorização eficiente das reclamações.</div></div>
             </div>
             <div class="step-item" onclick="toggleStep('ch3')">
               <div class="step-number">📖</div>
@@ -419,7 +411,7 @@
             </div>
             <div class="step-item" onclick="toggleStep('ch4')">
               <div class="step-number">💻</div>
-              <div class="step-text"><h4>Plataforma RAS (Rede de Apoio ao Sócio)</h4><p>Sistema interno Solinca para rastreio de todas as interações.</p><div class="step-detail" id="ch4">Centraliza todas as reclamações, feedbacks e pedidos. Permite gerar relatórios mensais de causas. Atribui responsável por categoria. Envia alertas de follow-up automáticos.</div></div>
+              <div class="step-text"><h4>Sistema Interno de Gestão</h4><p>Plataforma interna para rastreio de todas as interações e reclamações.</p><div class="step-detail" id="ch4">Centraliza todas as reclamações, feedbacks e pedidos. Permite gerar relatórios mensais de causas. Atribui responsável por categoria. Envia alertas de follow-up automáticos.</div></div>
             </div>
             <div class="step-item" onclick="toggleStep('ch5')">
               <div class="step-number">⭐</div>
@@ -439,7 +431,7 @@
           </div>
         </div>
         <div class="tab-content" id="tab-erros">
-          <h4 style="font-family:'Unbounded',sans-serif; color:var(--laranja-solinca); margin-bottom:1.5rem;">ERROS MAIS COMUNS NO ATENDIMENTO — SOLINCA</h4>
+          <h4 style="font-family:'Unbounded',sans-serif; color:var(--laranja-solinca); margin-bottom:1.5rem;">ERROS MAIS COMUNS NO ATENDIMENTO</h4>
           <div class="accordion-item"><div class="accordion-header" onclick="toggleAcc(this)">❌ Erro 1: "Isso não é comigo" <span>▼</span></div><div class="accordion-body"><p><strong>Porquê é errado:</strong> Transmite desresponsabilização e abandona o cliente. O cliente não sabe quem é o responsável — a tua função é esse elo.<br><strong>Alternativa correta:</strong> "Vou encaminhar imediatamente para a pessoa responsável e garantir que recebe uma resposta hoje."</p></div></div>
           <div class="accordion-item"><div class="accordion-header" onclick="toggleAcc(this)">❌ Erro 2: "O sistema é que falhou" <span>▼</span></div><div class="accordion-body"><p><strong>Porquê é errado:</strong> Culpar a tecnologia ou terceiros passa a imagem de uma empresa desorganizada e sem controlo.<br><strong>Alternativa correta:</strong> "Lamentamos o inconveniente. Vou resolver este problema pessoalmente."</p></div></div>
           <div class="accordion-item"><div class="accordion-header" onclick="toggleAcc(this)">❌ Erro 3: Interromper o cliente <span>▼</span></div><div class="accordion-body"><p><strong>Porquê é errado:</strong> O cliente precisa de sentir que foi ouvido completamente. Interromper aumenta a irritação e sugere que a tua opinião é mais importante que a dele.<br><strong>Alternativa correta:</strong> Esperar sempre que o cliente termine. Anotar pontos enquanto ouve. Confirmar com "Percebi que..."</p></div></div>
@@ -450,11 +442,11 @@
 
       <!-- Simulações -->
       <div class="interactive-area">
-        <h3><i class="fas fa-phone-alt"></i> Simulação: Atendimento Solinca</h3>
+        <h3><i class="fas fa-phone-alt"></i> Simulação: Atendimento em Instalação Desportiva</h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
           <div class="chat-simulation">
             <h4>📞 Chamada — Reembolso</h4>
-            <div class="chat-message"><div class="chat-avatar">👤</div><div class="chat-bubble client"><strong>Sócio:</strong> "Já passaram 15 dias e o reembolso não entrou no cartão Continente!"</div></div>
+            <div class="chat-message"><div class="chat-avatar">👤</div><div class="chat-bubble client"><strong>Sócio:</strong> "Já passaram 15 dias e o reembolso não entrou na minha conta!"</div></div>
             <div class="response-options">
               <button class="response-btn" onclick="handleCallResponse('erro1')">"Não sou eu que trato disso"</button>
               <button class="response-btn" onclick="handleCallResponse('erro2')">"O sistema deve ter falhado"</button>
@@ -469,7 +461,7 @@
               <button class="response-btn" onclick="handlePresentialResponse('erro1')">"Pode usar outra"</button>
               <button class="response-btn" onclick="handlePresentialResponse('erro2')">"Já mandei reclamação"</button>
               <button class="response-btn" onclick="handlePresentialResponse('correto1')">"Vou agilizar a reparação"</button>
-              <button class="response-btn" onclick="handlePresentialResponse('correto2')">"Oferecemos uma aula de PT"</button>
+              <button class="response-btn" onclick="handlePresentialResponse('correto2')">"Oferecemos uma aula gratuita"</button>
             </div>
             <div id="presentialFeedback" class="feedback-message" style="display:none;"></div>
           </div>
@@ -481,7 +473,7 @@
         <h3><i class="fas fa-theater-masks"></i> Cenários Avançados</h3>
         <div class="scenario-card">
           <h4>🔴 CENÁRIO: Sócio furioso nas redes sociais</h4>
-          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">Um sócio publica no Google: "Péssimo ginásio! Máquinas avariadas há semanas, atendimento zero. Nunca mais!" — 3 estrelas. Como responde a Solinca?</p>
+          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">Um sócio publica no Google: "Péssimo ginásio! Máquinas avariadas há semanas, atendimento zero. Nunca mais!" — 3 estrelas. Como responde a instalação?</p>
           <div class="scenario-opts">
             <button class="scenario-opt" onclick="showScenario('s1','wrong1')">Ignorar o comentário</button>
             <button class="scenario-opt" onclick="showScenario('s1','wrong2')">"O problema já estava resolvido"</button>
@@ -514,7 +506,7 @@
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="positiva">👀 Contacto visual constante</span>
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="positiva">🫂 Inclinar levemente o corpo</span>
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="positiva">✋ Gestos abertos e calmos</span>
-          <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="negativa">🙅‍♂️ Braços cruzados</span>
+          <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="negativa">🙅 Braços cruzados</span>
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="negativa">😤 Suspirar audível</span>
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="negativa">📱 Olhar para o telemóvel</span>
           <span class="linguagem-corporal-card" draggable="true" ondragstart="drag(event)" data-type="negativa">🙄 Expressão de impaciência</span>
@@ -566,16 +558,16 @@
   <!-- ════════════════ SISTEMA ════════════════ -->
   <section id="sistema">
     <div class="section-content">
-      <h2>SISTEMA SOLINCA</h2>
+      <h2>SISTEMA DE GESTÃO</h2>
 
       <div class="info-box">
         <h4><i class="fas fa-cogs"></i> PORQUÊ TER UM SISTEMA DE GESTÃO DE RECLAMAÇÕES?</h4>
-        <p>Um sistema estruturado garante que <strong>nenhuma reclamação se perde</strong>, que as resoluções são <strong>rastreáveis</strong>, que os prazos legais são <strong>cumpridos</strong> e que os dados geram <strong>aprendizagem organizacional</strong>. Sem sistema, as reclamações ficam dependentes da memória individual dos colaboradores — o que é insustentável e arriscado.</p>
+        <p>Um sistema estruturado garante que <strong>nenhuma reclamação se perde</strong>, que as resoluções são <strong>rastreáveis</strong>, que os prazos legais são <strong>cumpridos</strong> e que os dados geram <strong>aprendizagem organizacional</strong>. Sem sistema, as reclamações ficam dependentes da memória individual dos colaboradores — o que é insustentável e arriscado em qualquer instalação desportiva.</p>
       </div>
 
       <!-- Fluxograma -->
       <div class="interactive-area">
-        <h3><i class="fas fa-diagram-project"></i> Fluxograma de Reclamações — Solinca NS</h3>
+        <h3><i class="fas fa-diagram-project"></i> Fluxograma de Reclamações</h3>
         <p style="color:rgba(255,255,255,0.7); margin-bottom:1rem;">Organiza as etapas por ordem correta:</p>
         <div class="fluxograma-builder">
           <span class="fluxo-etapa" draggable="true" ondragstart="dragFluxo(event)" data-etapa="1">📥 RECEÇÃO</span>
@@ -597,7 +589,7 @@
         <div class="step-flow">
           <div class="step-item" onclick="toggleStep('fl1')">
             <div class="step-number">📥</div>
-            <div class="step-text"><h4>1. RECEÇÃO</h4><p>Canal de entrada: presencial, telefone, email, app, redes sociais ou livro de reclamações.</p><div class="step-detail" id="fl1">O colaborador regista o canal, a hora e os dados do sócio. Deve agradecer o contacto e transmitir calma. Tempo máximo de espera: 3 minutos. Se o canal for o livro de reclamações, deve ser disponibilizado imediatamente.</div></div>
+            <div class="step-text"><h4>1. RECEÇÃO</h4><p>Canal de entrada: presencial, telefone, email, app, redes sociais ou livro de reclamações.</p><div class="step-detail" id="fl1">O colaborador regista o canal, a hora e os dados do cliente. Deve agradecer o contacto e transmitir calma. Tempo máximo de espera: 3 minutos. Se o canal for o livro de reclamações, deve ser disponibilizado imediatamente.</div></div>
           </div>
           <div class="step-item" onclick="toggleStep('fl2')">
             <div class="step-number">📝</div>
@@ -605,7 +597,7 @@
           </div>
           <div class="step-item" onclick="toggleStep('fl3')">
             <div class="step-number">🔍</div>
-            <div class="step-text"><h4>3. ANÁLISE</h4><p>Investigação da causa raiz. Verificação de reclamações similares anteriores.</p><div class="step-detail" id="fl3">Verificar se é reclamação isolada ou padrão recorrente. Consultar histórico do sócio. Identificar falha de processo, equipamento, comunicação ou atendimento. Documentar causa raiz para relatório mensal.</div></div>
+            <div class="step-text"><h4>3. ANÁLISE</h4><p>Investigação da causa raiz. Verificação de reclamações similares anteriores.</p><div class="step-detail" id="fl3">Verificar se é reclamação isolada ou padrão recorrente. Consultar histórico do cliente. Identificar falha de processo, equipamento, comunicação ou atendimento. Documentar causa raiz para relatório mensal.</div></div>
           </div>
           <div class="step-item" onclick="toggleStep('fl4')">
             <div class="step-number">💬</div>
@@ -659,7 +651,6 @@
     <div class="section-content">
       <h2>LEGISLAÇÃO & MELHORIA</h2>
 
-      <!-- Legislação -->
       <div class="tab-container">
         <div class="tab-buttons">
           <button class="tab-btn active" onclick="openTab('leg-livro', this)">📖 Livro Reclamações</button>
@@ -725,9 +716,9 @@
               <li><strong>CNIACC</strong> — Centro Nacional de Informação e Arbitragem de Conflitos de Consumo</li>
               <li><strong>CICAP</strong> — Centro de Informação de Consumo e Arbitragem do Porto</li>
               <li><strong>CIAB</strong> — Centro de Arbitragem de Conflitos de Consumo (Norte)</li>
-              <li><strong>Provedor do Cliente</strong> — figura interna algumas grandes empresas</li>
+              <li><strong>Provedor do Cliente</strong> — figura interna em algumas grandes empresas</li>
             </ul>
-            <p style="margin-top:1rem;"><strong>Para a Solinca:</strong> A existência de RAC interna eficaz reduz significativamente o número de casos que chegam a estas entidades, protegendo a reputação da marca.</p>
+            <p style="margin-top:1rem;"><strong>Para instalações desportivas:</strong> A existência de RAC interna eficaz reduz significativamente o número de casos que chegam a estas entidades, protegendo a reputação da marca.</p>
           </div>
         </div>
       </div>
@@ -735,9 +726,9 @@
       <!-- Livro Simulado -->
       <div class="livro-reclamacoes">
         <h3><i class="fas fa-book"></i> Livro de Reclamações (Simulação)</h3>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem; color:rgba(255,255,255,0.7);">Preenche os campos como se fosses um sócio a reclamar:</p>
-        <input type="text" class="livro-input" id="nomeReclamante" placeholder="Nome completo do sócio">
-        <input type="text" class="livro-input" id="nrSocio" placeholder="Número de sócio (ex: SOL-12345)">
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color:rgba(255,255,255,0.7);">Preenche os campos como se fosses um cliente a reclamar:</p>
+        <input type="text" class="livro-input" id="nomeReclamante" placeholder="Nome completo do cliente">
+        <input type="text" class="livro-input" id="nrSocio" placeholder="Número de sócio (ex: GYM-12345)">
         <input type="text" class="livro-input" id="dataReclamacao" placeholder="Data" value="2025-03-05">
         <select class="livro-input" id="categoriaReclamacao" style="background:rgba(255,255,255,0.1); border:2px solid var(--laranja-solinca); border-radius:20px; padding:1rem; color:white;">
           <option value="" style="background:#1a1a1a;">Categoria da reclamação</option>
@@ -758,7 +749,7 @@
 
       <!-- Plano Melhoria -->
       <div class="interactive-area">
-        <h3><i class="fas fa-chart-line"></i> Plano de Melhoria — Solinca</h3>
+        <h3><i class="fas fa-chart-line"></i> Plano de Melhoria — Instalação Desportiva</h3>
         <p style="color:rgba(255,255,255,0.7); margin-bottom:1.5rem;">Clica em cada área para ver as ações concretas, responsáveis e prazos:</p>
         <div class="plano-melhoria-item" onclick="expandPlano('area1')">
           <i class="fas fa-dumbbell" style="color:var(--laranja-solinca)"></i> Equipamentos
@@ -776,7 +767,7 @@
           <i class="fas fa-users" style="color:var(--laranja-solinca)"></i> Atendimento
           <span style="float: right; color:var(--laranja-solinca);">▼</span>
           <div id="area2" style="display: none; margin-top: 1rem; padding-top:1rem; border-top:1px solid rgba(240,78,53,0.2);">
-            <p>✅ <strong>Ação:</strong> Formação em comunicação assertiva e gestão de conflitos (este módulo!)</p>
+            <p>✅ <strong>Ação:</strong> Formação em comunicação assertiva e gestão de conflitos</p>
             <p>✅ <strong>Ação:</strong> Protocolo escrito de resposta para os cenários mais frequentes</p>
             <p>✅ <strong>Ação:</strong> Resposta a emails/app em máximo 24h (alerta automático)</p>
             <p>✅ <strong>Ação:</strong> Avaliação mensal de atendimento por mystery shopping</p>
@@ -785,25 +776,25 @@
           </div>
         </div>
         <div class="plano-melhoria-item" onclick="expandPlano('area3')">
-          <i class="fas fa-mobile-alt" style="color:var(--laranja-solinca)"></i> App / Tecnologia
+          <i class="fas fa-mobile-alt" style="color:var(--laranja-solinca)"></i> Tecnologia / Comunicação
           <span style="float: right; color:var(--laranja-solinca);">▼</span>
           <div id="area3" style="display: none; margin-top: 1rem; padding-top:1rem; border-top:1px solid rgba(240,78,53,0.2);">
-            <p>✅ <strong>Ação:</strong> Cartões físicos como alternativa em caso de falha da app</p>
+            <p>✅ <strong>Ação:</strong> Cartões físicos como alternativa em caso de falha digital</p>
             <p>✅ <strong>Ação:</strong> Notificações de cancelamento de aulas com 2h+ de antecedência</p>
-            <p>✅ <strong>Ação:</strong> Chat de suporte em tempo real na app</p>
-            <p>✅ <strong>Ação:</strong> Integração do sistema de reembolsos com parceiro Continente</p>
+            <p>✅ <strong>Ação:</strong> Chat de suporte em tempo real</p>
+            <p>✅ <strong>Ação:</strong> Integração do sistema de pagamentos com parceiros</p>
             <p>👤 <strong>Responsável:</strong> Coordenador de Operações + IT</p>
-            <p>⏱️ <strong>Prazo de implementação:</strong> Imediato (cartões) / 60 dias (app)</p>
+            <p>⏱️ <strong>Prazo de implementação:</strong> Imediato (cartões) / 60 dias (digital)</p>
           </div>
         </div>
         <div class="plano-melhoria-item" onclick="expandPlano('area4')">
           <i class="fas fa-shield-alt" style="color:var(--laranja-solinca)"></i> Segurança
           <span style="float: right; color:var(--laranja-solinca);">▼</span>
           <div id="area4" style="display: none; margin-top: 1rem; padding-top:1rem; border-top:1px solid rgba(240,78,53,0.2);">
-            <p>✅ <strong>Ação:</strong> Cacifos com fechadura eletrónica nos balneários</p>
-            <p>✅ <strong>Ação:</strong> Câmeras nas zonas de acesso (não balneários)</p>
+            <p>✅ <strong>Ação:</strong> Cacifos com fechadura adequada nos balneários</p>
+            <p>✅ <strong>Ação:</strong> Câmeras nas zonas de acesso</p>
             <p>✅ <strong>Ação:</strong> Rondas de supervisão de 30 em 30 minutos</p>
-            <p>✅ <strong>Ação:</strong> Protocolo claro de denúncia de furtos (boletim + câmeras)</p>
+            <p>✅ <strong>Ação:</strong> Protocolo claro de denúncia de furtos</p>
             <p>👤 <strong>Responsável:</strong> Diretor de Clube</p>
             <p>⏱️ <strong>Prazo de implementação:</strong> 45 dias</p>
           </div>
@@ -813,13 +804,12 @@
       <!-- Satisfeito vs Fidelizado -->
       <div class="debate-card" onclick="showDebate()">
         <h4 style="font-family:'Unbounded',sans-serif;">🎤 Debate: Satisfeito vs Fidelizado</h4>
-        <p style="font-size: 1.1rem; margin: 0.8rem 0; color:rgba(255,255,255,0.8);">Qual a diferença para a Solinca? Clique para expandir.</p>
+        <p style="font-size: 1.1rem; margin: 0.8rem 0; color:rgba(255,255,255,0.8);">Qual a diferença numa instalação desportiva? Clique para expandir.</p>
         <div id="debateContent" style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 20px; font-size:0.95rem; line-height:1.7;">
-          Qual a diferença para a Solinca?
+          Qual a diferença real entre um cliente satisfeito e um cliente fidelizado?
         </div>
       </div>
 
-      <!-- Comparação Satisfeito vs Fidelizado -->
       <div id="comparacaoBlock" style="display:none;">
         <div class="comparacao-grid" style="margin-top:1.5rem;">
           <div class="comparacao-col">
@@ -845,7 +835,7 @@
         </div>
         <div class="info-box" style="margin-top:1rem;">
           <h4>🎯 A DIFERENÇA É O "WOW MOMENT"</h4>
-          <p>O cliente fidelizado surge quando a resposta à reclamação <strong>supera as expectativas</strong>. Ex: para além de reparar a máquina, a Solinca oferece uma sessão de PT gratuita pela inconveniência. Esse gesto inesperado transforma a experiência negativa num momento memorável.</p>
+          <p>O cliente fidelizado surge quando a resposta à reclamação <strong>supera as expectativas</strong>. Ex: para além de reparar a máquina, a instalação oferece uma sessão de treino personalizado pela inconveniência. Esse gesto inesperado transforma a experiência negativa num momento memorável.</p>
         </div>
       </div>
     </div>
@@ -858,7 +848,7 @@
 
       <div class="info-box">
         <h4><i class="fas fa-exclamation-triangle"></i> O QUE É UMA SITUAÇÃO DE CRISE?</h4>
-        <p>Uma crise é um evento imprevisto de elevado impacto que afeta simultaneamente múltiplos clientes e a reputação do negócio. No contexto da Solinca NS, pode ser desencadeada por falha técnica grave, incidente de segurança, acidente com sócio, ou crise de comunicação nas redes sociais. A gestão eficaz nos <strong>primeiros 30 minutos</strong> é determinante para o desfecho.</p>
+        <p>Uma crise é um evento imprevisto de elevado impacto que afeta simultaneamente múltiplos clientes e a reputação do negócio. No contexto de instalações desportivas, pode ser desencadeada por falha técnica grave, incidente de segurança, acidente com um sócio ou crise nas redes sociais. A gestão eficaz nos <strong>primeiros 30 minutos</strong> é determinante para o desfecho.</p>
       </div>
 
       <!-- Stress -->
@@ -881,11 +871,11 @@
 
       <!-- Crise Principal -->
       <div class="crisis-simulation">
-        <h3 style="font-size: 2.5rem; font-family:'Unbounded',sans-serif;">🚨 CRISE SOLINCA</h3>
-        <p style="font-size: 1.3rem; color:rgba(255,255,255,0.8); margin:1rem 0;">Cenário: Avaria elétrica total às 18h de sexta-feira. Cancelamento de todas as aulas (cycling, pilates, yoga, combat). 120 sócios no clube. Redes sociais a começar a encher de comentários negativos.</p>
+        <h3 style="font-size: 2.5rem; font-family:'Unbounded',sans-serif;">🚨 SIMULAÇÃO DE CRISE</h3>
+        <p style="font-size: 1.3rem; color:rgba(255,255,255,0.8); margin:1rem 0;">Cenário: Avaria elétrica total às 18h de sexta-feira. Cancelamento de todas as aulas (cycling, pilates, yoga, combat). 120 clientes no clube. Redes sociais a começar a encher de comentários negativos.</p>
         <div style="margin: 2rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
           <button class="crisis-option" onclick="handleCrisis('ignorar')">❌ "Não é connosco"</button>
-          <button class="crisis-option" onclick="handleCrisis('culpar')">😤 "Culpa do shopping"</button>
+          <button class="crisis-option" onclick="handleCrisis('culpar')">😤 "Culpa do fornecedor"</button>
           <button class="crisis-option" onclick="handleCrisis('resolver')">✅ Remarcar + day-pass</button>
           <button class="crisis-option" onclick="handleCrisis('empatia')">💚 Compreensão + compensação</button>
         </div>
@@ -896,10 +886,10 @@
 
       <!-- Outros cenários de crise -->
       <div class="interactive-area">
-        <h3><i class="fas fa-fire-extinguisher"></i> Outros Cenários de Crise — Solinca NS</h3>
+        <h3><i class="fas fa-fire-extinguisher"></i> Outros Cenários de Crise</h3>
         <div class="scenario-card">
           <h4>🔴 CRISE: Furto confirmado nos balneários</h4>
-          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">Vários sócios reportam furtos de telemóveis e carteiras nos balneários masculinos na mesma tarde. Dois sócios ameaçam ir para as redes sociais.</p>
+          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">Vários clientes reportam furtos de telemóveis e carteiras nos balneários na mesma tarde. Dois clientes ameaçam ir para as redes sociais.</p>
           <div class="scenario-opts">
             <button class="scenario-opt" onclick="showScenario('sc1','wrong1')">Pedir para esperarem pelo seguro</button>
             <button class="scenario-opt" onclick="showScenario('sc1','wrong2')">Dizer que não é responsabilidade do ginásio</button>
@@ -909,7 +899,7 @@
         </div>
         <div class="scenario-card">
           <h4>🟡 CRISE: Instrutor falta consecutivamente</h4>
-          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">O instrutor da aula de cycling faltou 3 vezes em 2 semanas sem aviso. Grupo de sócios apresenta reclamação coletiva.</p>
+          <p style="font-size:0.95rem; color:rgba(255,255,255,0.75);">O instrutor da aula de cycling faltou 3 vezes em 2 semanas sem aviso. Grupo de clientes apresenta reclamação coletiva.</p>
           <div class="scenario-opts">
             <button class="scenario-opt" onclick="showScenario('sc2','wrong1')">Dizer que o instrutor está doente</button>
             <button class="scenario-opt" onclick="showScenario('sc2','correct')">Pedir desculpa, substituir instrutor, oferecer crédito</button>
@@ -921,7 +911,7 @@
 
       <!-- Protocolo de Crise -->
       <div class="interactive-area" style="background:rgba(125,23,86,0.15);">
-        <h3><i class="fas fa-clipboard-list"></i> Protocolo de Resposta a Crise — Solinca</h3>
+        <h3><i class="fas fa-clipboard-list"></i> Protocolo de Resposta a Crise</h3>
         <div class="step-flow">
           <div class="step-item"><div class="step-number" style="font-size:1rem;">⏱️</div><div class="step-text"><h4>0-5 MINUTOS</h4><p>Confirmar o problema. Chamar o responsável de turno. Não dar declarações prematuras.</p></div></div>
           <div class="step-item"><div class="step-number" style="font-size:1rem;">📢</div><div class="step-text"><h4>5-15 MINUTOS</h4><p>Comunicar aos clientes presentes com empatia e informação honesta sobre o que se sabe.</p></div></div>
@@ -943,7 +933,6 @@
         <p style="font-size: 1.3rem; margin-bottom:0.5rem; color:rgba(255,255,255,0.7);">Plano de Gestão de Reclamações · 2025</p>
         <p style="font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:2rem;">Elaborado por: Afonso Pinho Terra Soares | UFCD 7266 | Prof.ª Conceição Menezes</p>
 
-        <!-- Stats -->
         <div class="stat-grid">
           <div class="stat-card"><div class="stat-number">40%</div><div class="stat-label">Reclamações Faturação</div></div>
           <div class="stat-card"><div class="stat-number">30%</div><div class="stat-label">Equipamentos</div></div>
@@ -951,12 +940,10 @@
           <div class="stat-card"><div class="stat-number">15%</div><div class="stat-label">Outros</div></div>
         </div>
 
-        <!-- Chart -->
         <div class="chart-container">
           <canvas id="reclamacoesChart" style="width:100%; max-height:400px;"></canvas>
         </div>
 
-        <!-- Cards detalhes -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0;">
           <div class="card-3d" style="padding: 2rem;" onclick="showSolincaDetail('tipos')">
             <i class="fas fa-list" style="font-size:2rem; background:var(--grad-solinca);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"></i>
@@ -985,7 +972,7 @@
           </div>
         </div>
 
-        <!-- Plano Ação -->
+        <!-- Plano Ação Solinca -->
         <div class="interactive-area" style="background: rgba(240,78,53,0.1);">
           <h3><i class="fas fa-clipboard-check"></i> Plano de Ação Detalhado — Solinca NS 2025</h3>
           <div class="plano-melhoria-item" onclick="toggleSolincaItem('item1')">
@@ -1069,7 +1056,6 @@
   </section>
 
   <script>
-    /* SCROLL */
     function scrollToSection(id) {
       const s = document.getElementById(id);
       if (s) gsap.to(window, {duration: 1.5, scrollTo: {y: s, offsetY: 70}, ease: "power3.inOut"});
@@ -1100,8 +1086,8 @@
     const kGeo = new THREE.TorusKnotGeometry(1.4,.35,128,16);
     const kMat = new THREE.MeshStandardMaterial({color:0xF04E35,emissive:0x7D1756,wireframe:true,transparent:true,opacity:0.15});
     const knot = new THREE.Mesh(kGeo, kMat); scene.add(knot);
-    const l1 = new THREE.PointLight(0xF04E35,1,10); l1.position.set(2,3,4); scene.add(l1);
-    const l2 = new THREE.PointLight(0x7D1756,1,10); l2.position.set(-3,-1,3); scene.add(l2);
+    scene.add(new THREE.PointLight(0xF04E35,1,10));
+    scene.add(new THREE.PointLight(0x7D1756,1,10));
     scene.add(new THREE.AmbientLight(0x404060));
     camera.position.z = 7;
     (function animate(){requestAnimationFrame(animate);pMesh.rotation.y+=.0002;pMesh.rotation.x+=.0001;knot.rotation.x+=.003;knot.rotation.y+=.005;renderer.render(scene,camera);})();
@@ -1111,57 +1097,49 @@
     const cursor = document.getElementById('cursor'), follower = document.getElementById('cursor-follower');
     document.addEventListener('mousemove',(e)=>{gsap.to(cursor,{x:e.clientX,y:e.clientY,duration:0.1});gsap.to(follower,{x:e.clientX,y:e.clientY,duration:0.3});});
     document.querySelectorAll('a,button,.card-3d,.brainstorm-item,.response-btn,.fluxo-etapa,.plano-melhoria-item,.step-item,.accordion-header,.tab-btn,.scenario-opt,.quiz-opt').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{gsap.to(cursor,{scale:1.8,background:'rgba(240,78,53,0.3)'});gsap.to(follower,{scale:1.8,background:'rgba(240,78,53,0.2)'}); });
-      el.addEventListener('mouseleave',()=>{gsap.to(cursor,{scale:1,background:'transparent'});gsap.to(follower,{scale:1,background:'rgba(240,78,53,0.1)'});});
+      el.addEventListener('mouseenter',()=>{gsap.to(cursor,{scale:1.8});gsap.to(follower,{scale:1.8});});
+      el.addEventListener('mouseleave',()=>{gsap.to(cursor,{scale:1});gsap.to(follower,{scale:1});});
     });
 
     /* BRAINSTORM */
     const bFeedbacks = {
-      mensalidades: `<strong>💶 Mensalidades / Faturação (40% das reclamações)</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Desfasamento entre parceiro de pagamento (Continente) e sistema Solinca.<br><br>
-        📌 <strong>Causas:</strong> Processamento lento do parceiro, falhas de sincronização, débito não reconhecido.<br>
-        ✅ <strong>Soluções:</strong> Alerta automático em 5 dias úteis, protocolo de verificação com comprovativo, linha financeira direta.<br>
-        ⚖️ <strong>Legislação:</strong> Direito à retificação imediata (DL 24/2014). Prazo máximo de reembolso: 14 dias.`,
+      mensalidades: `<strong>💶 Mensalidades / Faturação (causa mais frequente)</strong><br><br>
+        📌 <strong>Causas:</strong> Desfasamento entre parceiro de pagamento e sistema interno, débito não reconhecido, erros de processamento.<br><br>
+        ✅ <strong>Soluções:</strong> Alerta automático em 5 dias úteis, protocolo de verificação com comprovativo, linha financeira direta na receção.<br><br>
+        ⚖️ <strong>Legislação:</strong> Direito à retificação imediata (DL 24/2014). Prazo máximo de reembolso: 14 dias.<br>
+        📊 <strong>KPI sugerido:</strong> Zero cobranças indevidas não resolvidas em 24h.`,
       horarios: `<strong>🕐 Horários / Lotação</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Falta de flexibilidade de horários e overcrowding em horas de pico.<br><br>
-        📌 <strong>Causas:</strong> Concentração de sócios entre as 18h-20h, turmas superlotadas, pouca diversidade horária.<br>
-        ✅ <strong>Soluções:</strong> Inquérito semestral de satisfação, turmas em horários alternativos, limitação de inscrições online.<br>
-        📊 <strong>KPI:</strong> Satisfação com horários &gt;80% no inquérito semestral.`,
+        📌 <strong>Causas:</strong> Concentração de clientes em horas de pico, turmas superlotadas, pouca diversidade horária.<br><br>
+        ✅ <strong>Soluções:</strong> Inquérito semestral de satisfação, turmas em horários alternativos, limitação de inscrições online, comunicação proativa.<br><br>
+        📊 <strong>KPI sugerido:</strong> Satisfação com horários >80% no inquérito semestral.`,
       limpeza: `<strong>🧹 Limpeza / Balneários</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Higienização insuficiente em horas de pico e falta de inspeção regular.<br><br>
-        📌 <strong>Causas:</strong> Rácio de limpeza insuficiente para a afluência, falta de checklist diário.<br>
-        ✅ <strong>Soluções:</strong> Limpeza a cada 2h nos balneários, checklist assinado a cada turno, caixa de sugestões física.<br>
-        ⏱️ <strong>Prazo:</strong> Implementação imediata do novo protocolo de limpeza.`,
-      equipamentos: `<strong>🏋️ Equipamentos Avariados (30% das reclamações)</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Ausência de manutenção preventiva sistemática.<br><br>
-        📌 <strong>Causas:</strong> Avarias não reportadas a tempo, reparações demoradas, falta de comunicação ao sócio.<br>
-        ✅ <strong>Soluções:</strong> Checklist quinzenal, SLA de 48h para cardio, sinalização com prazo de reparação visível, app para reportar avarias.<br>
+        📌 <strong>Causas:</strong> Higienização insuficiente em horas de pico, falta de checklist de limpeza diário, rácio de pessoal inadequado.<br><br>
+        ✅ <strong>Soluções:</strong> Limpeza a cada 2h nos balneários, checklist assinado a cada turno, caixa de sugestões física junto aos balneários.<br><br>
+        ⏱️ <strong>Prazo sugerido:</strong> Implementação imediata do novo protocolo de limpeza.`,
+      equipamentos: `<strong>🏋️ Equipamentos Avariados (2.ª causa mais frequente)</strong><br><br>
+        📌 <strong>Causas:</strong> Ausência de manutenção preventiva sistemática, avarias não reportadas atempadamente, reparações demoradas.<br><br>
+        ✅ <strong>Soluções:</strong> Checklist quinzenal, SLA de 48h para cardio, sinalização com prazo de reparação visível, app para reportar avarias.<br><br>
         📊 <strong>Impacto esperado:</strong> Redução de 60% nas reclamações de equipamentos em 3 meses.`,
       aulas: `<strong>🤸 Aulas / Instrutores</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Cancelamentos sem aviso e qualidade percebida das aulas.<br><br>
-        📌 <strong>Causas:</strong> Instrutor ausente sem substituto, comunicação apenas no local.<br>
-        ✅ <strong>Soluções:</strong> Notificação push 2h antes, instrutor substituto para cada turno, crédito automático em caso de cancelamento.<br>
-        💡 <strong>Boa prática:</strong> Formulário de avaliação de aula na app após cada sessão.`,
-      atendimento: `<strong>🎧 Atendimento / App</strong><br><br>
-        <span class="badge-tag">Causa Principal</span> Falta de resposta atempada e problemas com a app Solinca.<br><br>
-        📌 <strong>Causas:</strong> Emails não respondidos, app com falhas de login, falta de cartões físicos como backup.<br>
-        ✅ <strong>Soluções:</strong> SLA de 24h para emails, resposta automática de confirmação, cartões físicos disponíveis, formação contínua da equipa.<br>
-        📱 <strong>App:</strong> Protocolo de contingência com cartão físico quando a app falha.`
+        📌 <strong>Causas:</strong> Cancelamentos sem aviso prévio, qualidade percebida das aulas, falta de substituto disponível.<br><br>
+        ✅ <strong>Soluções:</strong> Notificação push 2h antes do cancelamento, instrutor substituto para cada turno, crédito automático em caso de cancelamento sem aviso.<br><br>
+        💡 <strong>Boa prática:</strong> Formulário de avaliação de aula após cada sessão.`,
+      atendimento: `<strong>🎧 Atendimento / Tecnologia</strong><br><br>
+        📌 <strong>Causas:</strong> Emails não respondidos, falhas em apps ou sistemas de acesso, falta de alternativa digital.<br><br>
+        ✅ <strong>Soluções:</strong> SLA de 24h para emails, resposta automática de confirmação, alternativa física disponível, formação contínua da equipa de atendimento.<br><br>
+        📱 <strong>Contingência:</strong> Protocolo de acesso manual quando o sistema digital falha.`
     };
     function selectBrainstorm(element, tipo) {
       document.querySelectorAll('.brainstorm-item').forEach(item => item.classList.remove('selected'));
       element.classList.add('selected');
-      document.getElementById('brainstormFeedback').innerHTML = bFeedbacks[tipo] || '✅ Solução analisada!';
+      document.getElementById('brainstormFeedback').innerHTML = bFeedbacks[tipo] || '';
     }
 
-    /* CASE DETAILS */
     function showCaseDetails(tipo) {
-      const detailId = 'case_' + tipo;
-      const el = document.getElementById(detailId);
+      const el = document.getElementById('case_' + tipo);
       if(el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
 
-    /* ROLE PLAY */
     function startRolePlay(tipo) {
       const feedbacks = {
         agressivo: `🔥 <strong>PERFIL AGRESSIVO</strong><br><br>
@@ -1170,31 +1148,30 @@
           <strong>Técnica — D.E.S.C.:</strong><br>
           📍 <strong>D</strong>escreve: "Compreendo que a máquina está avariada há 1 semana"<br>
           📍 <strong>E</strong>xprime: "Percebo que isso seja frustrante, sobretudo quando faz parte da sua rotina"<br>
-          📍 <strong>S</strong>ugere: "Posso oferecer-lhe uma passadeira equivalente ou uma sessão de treino pessoal"<br>
+          📍 <strong>S</strong>ugere: "Posso oferecer-lhe um equipamento equivalente ou uma sessão de treino alternativa"<br>
           📍 <strong>C</strong>onsegue: "Fica satisfeito com esta solução?"<br><br>
-          💡 <strong>Chave:</strong> Baixar o tom de voz e manter postura firme mas empática. Nunca deixar o cliente sem resposta.`,
+          💡 <strong>Chave:</strong> Baixar o tom de voz e manter postura firme mas empática.`,
         passivo: `😶 <strong>PERFIL PASSIVO</strong><br><br>
           <strong>Comportamento:</strong> Voz baixa, hesitante, desvaloriza o problema, não espera por resposta.<br><br>
           <strong>O risco:</strong> O cliente passivo raramente reclama formalmente — simplesmente cancela o contrato sem aviso. É o perfil mais difícil de detetar e reter.<br><br>
           <strong>Técnica — Perguntas Abertas:</strong><br>
           📍 "Como se tem sentido em relação ao nosso serviço?"<br>
           📍 "Há algo que possamos melhorar para si?"<br>
-          📍 "O que o faria sentir mais satisfeito com o ginásio?"<br><br>
-          💡 <strong>Chave:</strong> Criar um ambiente de segurança. Demonstrar que a opinião dele é genuinamente valorizada. Dar seguimento ativo — não esperar que ele volte.`,
+          📍 "O que o faria sentir mais satisfeito?"<br><br>
+          💡 <strong>Chave:</strong> Criar um ambiente de segurança. Demonstrar que a opinião é genuinamente valorizada.`,
         indeciso: `🤔 <strong>PERFIL INDECISO</strong><br><br>
-          <strong>Comportamento:</strong> Incerto sobre reclamar ou não. Procura validação. Compara com outros ginásios. Facilmente influenciável — para melhor ou pior.<br><br>
-          <strong>O risco:</strong> Se a experiência de reclamação for negativa, decide facilmente mudar de ginásio. Se for positiva, torna-se fiel.<br><br>
+          <strong>Comportamento:</strong> Incerto sobre reclamar ou não. Procura validação. Compara opções. Facilmente influenciável.<br><br>
+          <strong>O risco:</strong> Se a experiência de reclamação for negativa, decide facilmente mudar. Se for positiva, torna-se fiel.<br><br>
           <strong>Técnica — Simplificar e Guiar:</strong><br>
           📍 "Tem razão em mencionar isto — é importante para nós"<br>
           📍 "Apresento-lhe duas soluções simples:"<br>
           📍 "Recomendo a opção A porque é a mais eficaz para a sua situação"<br>
           📍 "Posso tratar de tudo por si agora mesmo"<br><br>
-          💡 <strong>Chave:</strong> Reduzir a ambiguidade. Tomar a iniciativa. O indeciso quer que lhe mostrem o caminho.`
+          💡 <strong>Chave:</strong> Reduzir a ambiguidade. O indeciso quer que lhe mostrem o caminho.`
       };
       document.getElementById('roleplayFeedback').innerHTML = feedbacks[tipo] || '';
     }
 
-    /* QUIZ */
     function answerQuiz(qId, chosen, correct) {
       const opts = document.querySelectorAll(`#${qId} .quiz-opt`);
       const letters = ['A','B','C','D'];
@@ -1213,7 +1190,6 @@
       }
     }
 
-    /* TABS */
     function openTab(id, btn) {
       const parent = btn.closest('.tab-container');
       parent.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -1222,7 +1198,6 @@
       btn.classList.add('active');
     }
 
-    /* ACCORDION */
     function toggleAcc(header) {
       const body = header.nextElementSibling;
       const isOpen = header.classList.contains('open');
@@ -1230,66 +1205,60 @@
       if(!isOpen) { header.classList.add('open'); body.style.display='block'; }
     }
 
-    /* STEP TOGGLE */
     function toggleStep(id) {
       const el = document.getElementById(id);
       if(el) el.style.display = el.style.display==='block' ? 'none' : 'block';
     }
 
-    /* SCENARIOS */
     const scenarioData = {
       s1: {
-        wrong1: { color:'#ef4444', text:'❌ <strong>Ignorar</strong> — Grave erro. Comentários negativos públicos sem resposta transmitem abandono e indiferença. O post viraliza. A Solinca perde sócios e potenciais novos clientes que pesquisam reviews antes de aderir.' },
-        wrong2: { color:'#f59e0b', text:'⚠️ <strong>Defender-se publicamente</strong> — Contraproducente. Iniciar debate em comentários públicos piora a situação. Outros utilizadores observam o confronto e formam opinião negativa sobre a marca.' },
-        correct: { color:'#22c55e', text:'✅ <strong>Empatia + resolução privada</strong> — Correto! Resposta pública empática: "Lamentamos a experiência. Queremos resolver. Por favor envie-nos mensagem privada ou ligue [tel]". Resolve o problema em privado e demonstra profissionalismo publicamente.' }
+        wrong1: { color:'#ef4444', text:'❌ <strong>Ignorar</strong> — Grave erro. Comentários negativos sem resposta transmitem abandono. O post viraliza e a instalação perde clientes potenciais que pesquisam reviews antes de aderir.' },
+        wrong2: { color:'#f59e0b', text:'⚠️ <strong>Defender-se publicamente</strong> — Contraproducente. Debate em comentários públicos piora a situação. Outros utilizadores observam e formam opinião negativa.' },
+        correct: { color:'#22c55e', text:'✅ <strong>Empatia + resolução privada</strong> — Correto! Resposta pública empática: "Lamentamos a experiência. Queremos resolver. Por favor envie-nos mensagem privada." Profissional e eficaz.' }
       },
       s2: {
-        wrong1: { color:'#ef4444', text:'❌ <strong>Recusar o livro de reclamações</strong> — Ilegal. Contraordenação grave com multa até €30.000 (DL 156/2005). O funcionário deve disponibilizá-lo imediatamente, mesmo que não saiba onde está — deve pedir ajuda ao superior.' },
-        wrong2: { color:'#ef4444', text:'❌ <strong>Pedir para voltar</strong> — Inadmissível legalmente. O livro deve estar sempre acessível e disponível no imediato. Atrasar o acesso é equivalente a recusar.' },
-        correct: { color:'#22c55e', text:'✅ <strong>Disponibilizar imediatamente</strong> — Correto! O funcionário deve: 1) Disponibilizar o livro imediatamente; 2) Ajudar no preenchimento se o sócio precisar; 3) Manter postura empática durante o processo; 4) Garantir que uma cópia fica para o estabelecimento.' }
+        wrong1: { color:'#ef4444', text:'❌ <strong>Recusar o livro</strong> — Ilegal. Contraordenação grave com multa até €30.000 (DL 156/2005). Deve ser disponibilizado imediatamente.' },
+        wrong2: { color:'#ef4444', text:'❌ <strong>Pedir para voltar</strong> — Inadmissível legalmente. O livro deve estar sempre acessível no imediato. Atrasar é equivalente a recusar.' },
+        correct: { color:'#22c55e', text:'✅ <strong>Disponibilizar imediatamente</strong> — Correto! 1) Disponibilizar o livro imediatamente; 2) Ajudar no preenchimento se necessário; 3) Postura empática; 4) Guardar cópia para o estabelecimento.' }
       },
       sc1: {
-        wrong1: { color:'#ef4444', text:'❌ <strong>Pedir para esperar pelo seguro</strong> — Transfere responsabilidade e deixa o sócio sem apoio imediato. Piora a situação e aumenta a probabilidade de reclamação formal e reputação negativa.' },
-        wrong2: { color:'#ef4444', text:'❌ <strong>Dizer que não é responsabilidade</strong> — Juridicamente incorreto e eticamente errado. O ginásio tem responsabilidade pelo espaço. Esta resposta garante reclamação no livro, possível ação legal e impacto nas redes sociais.' },
-        correct: { color:'#22c55e', text:'✅ <strong>Ação completa:</strong> 1) Registar ocorrência com dados de todos os afetados; 2) Chamar autoridades se solicitado; 3) Rever câmeras disponíveis; 4) Oferecer compensação (ex: mês grátis); 5) Instalar cacifos melhores como medida imediata.' }
+        wrong1: { color:'#ef4444', text:'❌ <strong>Transferir para o seguro</strong> — Abandona o cliente sem apoio imediato. Piora a situação e aumenta a probabilidade de reclamação formal.' },
+        wrong2: { color:'#ef4444', text:'❌ <strong>Não é responsabilidade</strong> — Juridicamente incorreto. A instalação tem responsabilidade pelo espaço. Garante reclamação no livro e impacto nas redes sociais.' },
+        correct: { color:'#22c55e', text:'✅ <strong>Ação completa:</strong> 1) Registar ocorrência com dados de todos os afetados; 2) Chamar autoridades se solicitado; 3) Rever câmeras disponíveis; 4) Oferecer compensação; 5) Implementar medidas preventivas.' }
       },
       sc2: {
-        wrong1: { color:'#f59e0b', text:'⚠️ <strong>Justificar com doença</strong> — Desculpa insuficiente sem solução. Os sócios pagam por um serviço que não está a ser prestado. A explicação pode ser parte da resposta mas não pode ser a totalidade.' },
-        correct: { color:'#22c55e', text:'✅ <strong>Pedido de desculpa + solução + compensação:</strong> "Pedimos desculpa pela inconsistência. Identificámos o problema e tomámos as seguintes medidas: substituição do instrutor, crédito de 3 sessões na vossa conta e reformulação do protocolo de substituição."' },
-        wrong2: { color:'#ef4444', text:'❌ <strong>Sugerir outra aula</strong> — Minimiza o problema e desvaloriza a preferência dos sócios. Eles escolheram aquela aula por um motivo — oferecer outra sem mais não é uma solução, é uma esquiva.' }
+        wrong1: { color:'#f59e0b', text:'⚠️ <strong>Justificar com doença</strong> — Desculpa insuficiente sem solução. Os clientes pagam por um serviço que não está a ser prestado.' },
+        correct: { color:'#22c55e', text:'✅ <strong>Pedido de desculpa + solução + compensação:</strong> "Pedimos desculpa pela inconsistência. Substituímos o instrutor, oferecemos crédito de sessões e reformulámos o protocolo de substituição."' },
+        wrong2: { color:'#ef4444', text:'❌ <strong>Sugerir outra aula</strong> — Minimiza o problema e desvaloriza a preferência dos clientes. Não é uma solução, é uma esquiva.' }
       }
     };
     function showScenario(id, type) {
       const el = document.getElementById(id);
       const data = scenarioData[id][type];
-      el.style.display='block';
-      el.style.background = data.color + '22';
-      el.style.border = '1px solid ' + data.color;
+      el.style.display='block'; el.style.background = data.color + '22'; el.style.border = '1px solid ' + data.color;
       el.innerHTML = data.text;
     }
 
-    /* ATENDIMENTO SIMS */
     function handleCallResponse(tipo) {
       const feedback = {
-        erro1: '❌ <strong>Errado.</strong> "Não sou eu que trato disso" abandona o cliente. Ele não sabe quem trata — és tu o elo. Impacto: irritação imediata, alta probabilidade de livro de reclamações.',
-        erro2: '⚠️ <strong>Insuficiente.</strong> Culpar o sistema não resolve. O cliente quer solução, não explicações. Transmite desorganização interna.',
-        correto: '✅ <strong>Excelente!</strong> "Vou verificar e resolver hoje" transmite responsabilidade, urgência e compromisso. Cliente sente-se valorizado. Alta probabilidade de fidelização após resolução.'
+        erro1: '❌ <strong>Errado.</strong> "Não sou eu que trato disso" abandona o cliente. Ele não sabe quem trata — és tu o elo de ligação.',
+        erro2: '⚠️ <strong>Insuficiente.</strong> Culpar o sistema não resolve. O cliente quer solução, não explicações.',
+        correto: '✅ <strong>Excelente!</strong> "Vou verificar e resolver hoje" transmite responsabilidade, urgência e compromisso. Alta probabilidade de fidelização.'
       };
       const el = document.getElementById('callFeedback');
       el.style.display='block'; el.innerHTML = feedback[tipo];
     }
     function handlePresentialResponse(tipo) {
       const feedback = {
-        erro1: '❌ <strong>Errado.</strong> "Pode usar outra" minimiza e desrespeita a rotina do cliente. Ele não quer outra — quer a que usa sempre. Impacto: cliente sente que a sua rotina é irrelevante.',
-        erro2: '❌ <strong>Insuficiente.</strong> "Já mandei reclamação" sem prazo ou solução não é uma resposta. O cliente fica exatamente onde estava, mas mais frustrado.',
-        correto1: '✅ <strong>Bom!</strong> Ação imediata com compromisso. Cliente vê que és proativo. Acrescenta: "Dou-lhe feedback até amanhã" para completar a resposta.',
-        correto2: '💎 <strong>Excelente!</strong> Compensação inesperada transforma a experiência negativa. Um gesto que supera as expectativas cria fidelização. Este é o "wow moment".'
+        erro1: '❌ <strong>Errado.</strong> "Pode usar outra" minimiza e desrespeita a rotina do cliente.',
+        erro2: '❌ <strong>Insuficiente.</strong> Sem prazo ou solução concreta o cliente fica exatamente onde estava.',
+        correto1: '✅ <strong>Bom!</strong> Ação imediata com compromisso. Acrescenta um prazo para completar.',
+        correto2: '💎 <strong>Excelente!</strong> Compensação inesperada transforma a experiência negativa. Este é o "wow moment".'
       };
       const el = document.getElementById('presentialFeedback');
       el.style.display='block'; el.innerHTML = feedback[tipo];
     }
 
-    /* DRAG & DROP LINGUAGEM */
     function allowDrop(ev) { ev.preventDefault(); }
     function drag(ev) { ev.dataTransfer.setData("text", ev.target.outerHTML + "|" + ev.target.getAttribute('data-type')); }
     function drop(ev, targetType) {
@@ -1297,23 +1266,21 @@
       const data = ev.dataTransfer.getData("text").split('|');
       const elementHtml = data[0], elementType = data[1];
       const fb = document.getElementById('bodyLanguageFeedback');
-      if (elementType === targetType) { fb.innerHTML = '✅ Correto! Boa classificação.'; ev.target.innerHTML += '<br>' + elementHtml; }
+      if (elementType === targetType) { fb.innerHTML = '✅ Correto!'; ev.target.innerHTML += '<br>' + elementHtml; }
       else { fb.innerHTML = '❌ Classificação incorreta — tenta novamente'; }
     }
 
-    /* ASSERTIVAS */
     function checkAssertive(element, tipo) {
       const phrases = {
-        correto1: '"Não sou responsável pelos reembolsos" → <strong>"Vou encaminhar para o responsável e garantir que resolve ainda hoje"</strong><br><small style="color:rgba(255,255,255,0.6)">Porquê: Assume responsabilidade pelo encaminhamento sem transferir o problema para o cliente.</small>',
-        correto2: '"A app é que é lenta" → <strong>"Compreendo a frustração. Enquanto resolvemos, damos-lhe um cartão físico para não perder acesso"</strong><br><small style="color:rgba(255,255,255,0.6)">Porquê: Oferece solução imediata em vez de culpar a tecnologia.</small>',
-        correto3: '"Não posso fazer nada sobre as avarias" → <strong>"Já acionei a manutenção e dou-lhe feedback em máximo 24h. Enquanto isso posso sugerir..."</strong><br><small style="color:rgba(255,255,255,0.6)">Porquê: Mostra ação concreta com prazo definido e oferece alternativa.</small>',
-        correto4: '"Isso é política da empresa" → <strong>"Entendo que pode ser inconveniente. Deixe-me verificar o que é possível fazer dentro das nossas opções para o ajudar"</strong><br><small style="color:rgba(255,255,255,0.6)">Porquê: Não usa a empresa como escudo. Foca no que pode ser feito, não nas limitações.</small>',
-        correto5: '"Já disse que não é possível" → <strong>"Compreendo a sua frustração. Posso apresentar-lhe duas alternativas que podem funcionar para si"</strong><br><small style="color:rgba(255,255,255,0.6)">Porquê: Redireciona para soluções. "Já disse" é agressivo e fecha a conversa.</small>'
+        correto1: '"Não sou responsável pelos reembolsos" → <strong>"Vou encaminhar para o responsável e garantir que resolve ainda hoje"</strong><br><small style="color:rgba(255,255,255,0.6)">Assume responsabilidade pelo encaminhamento sem transferir o problema.</small>',
+        correto2: '"A app é que é lenta" → <strong>"Compreendo a frustração. Enquanto resolvemos, damos-lhe alternativa para não perder acesso"</strong><br><small style="color:rgba(255,255,255,0.6)">Oferece solução imediata em vez de culpar a tecnologia.</small>',
+        correto3: '"Não posso fazer nada sobre as avarias" → <strong>"Já acionei a manutenção e dou-lhe feedback em máximo 24h"</strong><br><small style="color:rgba(255,255,255,0.6)">Mostra ação concreta com prazo definido.</small>',
+        correto4: '"Isso é política da empresa" → <strong>"Deixe-me verificar o que é possível fazer para o ajudar"</strong><br><small style="color:rgba(255,255,255,0.6)">Não usa a empresa como escudo. Foca no que pode ser feito.</small>',
+        correto5: '"Já disse que não é possível" → <strong>"Compreendo a frustração. Posso apresentar-lhe duas alternativas"</strong><br><small style="color:rgba(255,255,255,0.6)">Redireciona para soluções em vez de fechar a conversa.</small>'
       };
       document.getElementById('assertiveResult').innerHTML = phrases[tipo];
     }
 
-    /* FLUXOGRAMA */
     function dragFluxo(ev) { ev.dataTransfer.setData("text", ev.target.outerHTML + "|" + ev.target.getAttribute('data-etapa')); }
     function allowDropFluxo(ev) { ev.preventDefault(); }
     function dropFluxo(ev) {
@@ -1324,23 +1291,21 @@
       c.innerHTML += ' ' + data[0] + ' <i class="fas fa-arrow-right" style="color: var(--laranja-solinca);"></i> ';
     }
     function checkFluxograma() {
-      document.getElementById('fluxoFeedback').innerHTML = '✅ <strong>Fluxo correto!</strong> 1.📥 Receção → 2.📝 Registo → 3.🔍 Análise → 4.💬 Resposta → 5.📈 Melhoria<br><small>Este é o ciclo completo de gestão de reclamações da Solinca NS.</small>';
+      document.getElementById('fluxoFeedback').innerHTML = '✅ <strong>Fluxo correto!</strong> 1.📥 Receção → 2.📝 Registo → 3.🔍 Análise → 4.💬 Resposta → 5.📈 Melhoria';
     }
 
-    /* ERROS CENAS */
     const errorDetails = {
-      erro1: '❌ <strong>CENA 1 — Transferência de Responsabilidade</strong><br><br><strong>Erro identificado:</strong> "Isso não é comigo, sou só da receção" — o colaborador desresponsabiliza-se totalmente.<br><strong>Impacto:</strong> Cliente sente-se abandonado. Irritação aumenta. Alta probabilidade de livro de reclamações.<br><strong>Correto seria:</strong> "Vou encaminhar para o colega responsável e garantir que recebe uma resposta ainda hoje. Pode deixar o seu contacto?"',
-      erro2: '❌ <strong>CENA 2 — Culpa no Sistema</strong><br><br><strong>Erro identificado:</strong> Atribuir a falha ao "sistema" sem assumir responsabilidade ou oferecer solução.<br><strong>Impacto:</strong> Passa imagem de empresa desorganizada. Cliente perde confiança.<br><strong>Correto seria:</strong> "Lamentamos este inconveniente. Vou resolver pessoalmente e entrarei em contacto consigo até ao final do dia."',
-      erro3: '❌ <strong>CENA 3 — Linguagem Corporal Negativa</strong><br><br><strong>Erro identificado:</strong> Olhar para o telemóvel durante o atendimento — sinal claro de desinteresse.<br><strong>Impacto:</strong> Cliente sente-se desrespeitado. Mesmo que a solução seja boa, a perceção é negativa (regra 55-38-7).<br><strong>Correto seria:</strong> Colocar o telemóvel fora da vista. Manter contacto visual. Postura voltada para o cliente.',
-      erro4: '❌ <strong>CENA 4 — Registo Incompleto</strong><br><br><strong>Erro identificado:</strong> Reclamação registada sem responsável ou prazo — cria "limbo" onde ninguém toma ação.<br><strong>Impacto:</strong> Reclamação não resolvida. Cliente sem feedback. Problema repete-se. Empresa não aprende.<br><strong>Correto seria:</strong> Todos os registos devem incluir: responsável, prazo e follow-up obrigatório.'
+      erro1: '❌ <strong>CENA 1 — Transferência de Responsabilidade</strong><br><strong>Erro:</strong> "Isso não é comigo" — desresponsabilização total.<br><strong>Correto:</strong> "Vou encaminhar para o colega responsável e garantir resposta ainda hoje."',
+      erro2: '❌ <strong>CENA 2 — Culpa no Sistema</strong><br><strong>Erro:</strong> Atribuir a falha ao "sistema" sem assumir responsabilidade.<br><strong>Correto:</strong> "Lamentamos este inconveniente. Vou resolver pessoalmente e entro em contacto até ao final do dia."',
+      erro3: '❌ <strong>CENA 3 — Linguagem Corporal Negativa</strong><br><strong>Erro:</strong> Olhar para o telemóvel — sinal claro de desinteresse (regra 55-38-7).<br><strong>Correto:</strong> Telemóvel fora da vista. Contacto visual. Postura voltada para o cliente.',
+      erro4: '❌ <strong>CENA 4 — Registo Incompleto</strong><br><strong>Erro:</strong> Reclamação sem responsável ou prazo — ninguém toma ação.<br><strong>Correto:</strong> Todos os registos incluem: responsável, prazo e follow-up obrigatório.'
     };
     function identifyError(tipo) {
       document.getElementById('errorFeedback').innerHTML = errorDetails[tipo];
     }
 
-    /* LIVRO */
     function submitReclamacao() {
-      const nome = document.getElementById('nomeReclamante').value || 'Sócio Solinca';
+      const nome = document.getElementById('nomeReclamante').value || 'Cliente';
       const nr = document.getElementById('nrSocio').value || 'N/A';
       const data = document.getElementById('dataReclamacao').value;
       const cat = document.getElementById('categoriaReclamacao').value || 'Não especificada';
@@ -1359,7 +1324,6 @@
       `;
     }
 
-    /* PLANO */
     function expandPlano(id) {
       const el = document.getElementById(id);
       el.style.display = el.style.display === 'none' ? 'block' : 'none';
@@ -1369,18 +1333,16 @@
       el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
 
-    /* DEBATE */
     function showDebate() {
-      document.getElementById('debateContent').innerHTML = '🎯 <strong>Cliente satisfeito:</strong> problema resolvido dentro do esperado — é obrigação.<br><br>🌟 <strong>Cliente fidelizado:</strong> encantamento pós-reclamação — a resolução superou as expectativas.<br><br>A diferença está no <strong>follow-up</strong>, na <strong>compensação personalizada</strong> e no <strong>"wow moment"</strong> que transforma uma experiência negativa numa memória positiva.';
+      document.getElementById('debateContent').innerHTML = '🎯 <strong>Cliente satisfeito:</strong> problema resolvido dentro do esperado — é obrigação.<br><br>🌟 <strong>Cliente fidelizado:</strong> encantamento pós-reclamação — a resolução superou as expectativas.<br><br>A diferença está no <strong>follow-up</strong>, na <strong>compensação personalizada</strong> e no <strong>"wow moment"</strong>.';
       document.getElementById('comparacaoBlock').style.display = 'block';
     }
 
-    /* STRESS */
     function start478() {
-      let count = 4;
       const timer = document.getElementById('timer478');
       const labels = {4:'4 · Inspira', 7:'7 · Segura', 8:'8 · Expira'};
       const next = {4:7, 7:8, 8:4};
+      let count = 4;
       timer.innerHTML = labels[count];
       const interval = setInterval(() => { count = next[count]; timer.innerHTML = labels[count]; }, 1000);
       setTimeout(() => clearInterval(interval), 20000);
@@ -1389,39 +1351,30 @@
       const timer = document.getElementById('timerMindful');
       let phase = 5;
       const items = {5:'5 coisas que vês 👁️', 4:'4 que tocas ✋', 3:'3 que ouves 👂', 2:'2 que cheiras 👃', 1:'1 que sentes 💚'};
-      timer.style.fontSize='1.8rem';
-      timer.innerHTML = items[phase];
+      timer.style.fontSize='1.8rem'; timer.innerHTML = items[phase];
       const interval = setInterval(() => {
-        phase--;
-        if(phase < 1) { timer.innerHTML = '🌊 Estás no momento presente'; clearInterval(interval); return; }
+        phase--; if(phase < 1) { timer.innerHTML = '🌊 Estás no momento presente'; clearInterval(interval); return; }
         timer.innerHTML = items[phase];
       }, 3000);
       setTimeout(() => clearInterval(interval), 20000);
     }
 
-    /* CRISE */
     function handleCrisis(tipo) {
       const results = {
-        ignorar: '❌ <strong>CONSEQUÊNCIAS — "Não é connosco":</strong><br>Curto prazo: Clientes exaltam-se, formam-se filas de queixas, posts negativos nas redes.<br>Médio prazo: 40-60% dos sócios presentes consideram cancelar a mensalidade.<br>Longo prazo: Reputação danificada, queda nas novas adesões, possível ação legal.',
-        culpar: '😤 <strong>CONSEQUÊNCIAS — "Culpa do shopping":</strong><br>Curto prazo: Alguns clientes aceitam, mas os mais informados reconhecem a esquiva.<br>Médio prazo: Imagem de empresa irresponsável. Relação com o shopping também fica tensa.<br>Longo prazo: Padrão de desresponsabilização mina a confiança dos sócios.',
-        resolver: '✅ <strong>CONSEQUÊNCIAS — Remarcar + day-pass:</strong><br>Curto prazo: 80% dos sócios aceitam a alternativa e saem satisfeitos.<br>Médio prazo: Posts positivos a elogiar a resposta da Solinca. Diferenciador positivo.<br>Longo prazo: Taxa de renovação mais alta no mês seguinte. NPS positivo.',
-        empatia: '💚 <strong>CONSEQUÊNCIAS — Compreensão + compensação personalizada:</strong><br>Curto prazo: Ambiente acalma rapidamente. Sócios sentem-se ouvidos e respeitados.<br>Médio prazo: 95% mantêm a mensalidade. Vários partilham a experiência positiva nas redes.<br>Longo prazo: Sócios tornam-se embaixadores da marca. ROI da compensação: 5x em renovações.'
+        ignorar: '❌ <strong>CONSEQUÊNCIAS — "Não é connosco":</strong><br>Curto prazo: clientes exaltam-se, posts negativos nas redes.<br>Médio prazo: 40-60% consideram cancelar a mensalidade.<br>Longo prazo: reputação danificada, queda nas adesões.',
+        culpar: '😤 <strong>CONSEQUÊNCIAS — "Culpa do fornecedor":</strong><br>Curto prazo: alguns aceitam, mas os mais informados reconhecem a esquiva.<br>Médio prazo: imagem de empresa irresponsável.<br>Longo prazo: padrão de desresponsabilização mina a confiança.',
+        resolver: '✅ <strong>CONSEQUÊNCIAS — Remarcar + day-pass:</strong><br>Curto prazo: 80% aceitam a alternativa e saem satisfeitos.<br>Médio prazo: posts positivos a elogiar a resposta. Diferenciador positivo.<br>Longo prazo: taxa de renovação mais alta. NPS positivo.',
+        empatia: '💚 <strong>CONSEQUÊNCIAS — Compreensão + compensação:</strong><br>Curto prazo: ambiente acalma rapidamente. Clientes sentem-se ouvidos.<br>Médio prazo: 95% mantêm a mensalidade. Partilhas positivas nas redes.<br>Longo prazo: clientes tornam-se embaixadores da marca.'
       };
       document.getElementById('crisisResult').innerHTML = results[tipo];
     }
 
-    /* SOLINCA DETAIL */
     function showSolincaDetail(tipo) {
-      if (tipo === 'tipos') {
-        const d = document.getElementById('tiposDetail');
-        d.style.display = d.style.display === 'none' ? 'block' : 'none';
-      } else {
-        const d = document.getElementById('procedimentosDetail');
-        d.style.display = d.style.display === 'none' ? 'block' : 'none';
-      }
+      const id = tipo === 'tipos' ? 'tiposDetail' : 'procedimentosDetail';
+      const d = document.getElementById(id);
+      d.style.display = d.style.display === 'none' ? 'block' : 'none';
     }
 
-    /* CHART */
     window.addEventListener('load', function() {
       const ctx = document.getElementById('reclamacoesChart').getContext('2d');
       new Chart(ctx, {
@@ -1431,8 +1384,7 @@
           datasets: [{
             data: [40, 30, 15, 10, 5],
             backgroundColor: ['#F04E35', '#c03520', '#7D1756', '#9d2a75', '#444'],
-            borderColor: 'rgba(10,10,10,0.8)',
-            borderWidth: 3
+            borderColor: 'rgba(10,10,10,0.8)', borderWidth: 3
           }]
         },
         options: {
@@ -1445,7 +1397,6 @@
       });
     });
 
-    /* GSAP REVEAL */
     gsap.registerPlugin(ScrollTrigger);
     document.querySelectorAll('.card-3d, .interactive-area, .stress-exercise, .crisis-simulation, .livro-reclamacoes, .projeto-solinca, .step-item, .info-box, .lei-box').forEach(el => {
       gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 90%' }, y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' });
